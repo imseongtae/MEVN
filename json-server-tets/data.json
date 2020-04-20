@@ -1,0 +1,12 @@
+{
+	"slip": [
+		{
+			"advice":"If you're feeling tired or anxious, a pint of water will almost always make you feel better.",
+			"slip_id":"13"
+		},
+		{"advice":"Just because you are offended, doesn't mean you are right.","slip_id":"79"},
+		{"advice":"Never buy cheap cling film.","slip_id":"25"}
+	],
+	"slip1": {"advice":"Just because you are offended, doesn't mean you are right.","slip_id":"79"},
+	"slip2": {"advice":"Never buy cheap cling film.","slip_id":"25"}
+}

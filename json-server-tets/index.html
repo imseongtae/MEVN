@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="slip in slips" :key="slip.slip_id">
+        <div>number: {{slip.slip_id}} | {{slip.advice}}</div>
+        
+      </li>
+    </ul>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    new Vue({
+      el:'#app',
+      data() {
+        return {
+          slips: []
+        }
+      },
+      created() {
+        axios.get('http://localhost:3000/slip')
+        .then((res) => {
+          console.log(res)
+          this.slips = res.data
+        })
+        .catch(err => {
+          console.error(err)
+        })
+      }
+
+    })
+
+  </script>
+</body>
+</html>
