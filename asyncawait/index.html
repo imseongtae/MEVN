@@ -6,7 +6,9 @@
   <title>Document</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">  
   <style>
-    a {
+    a.waves-effect,
+    button.waves-effect
+    {
       margin-top: 10px; margin-left: 5px;
     }
   </style>
@@ -20,18 +22,20 @@
         <th>직원번호</th><th>직원이름</th><th>이메일</th><th></th>
       </thead>
       <tbody>
+        <!-- v-for를 통해 검색된 데이터 표현 -->
         <tr v-for="emp in employees" :key="emp.id">
           <td>{{ emp.id }}</td>
           <td>{{ emp.name }}</td>
           <td>{{ emp.email }}</td>
           <td>
-            <button @click="showForm()">추가</button>
+            <!-- <button @click="showForm()">추가</button> -->
             <button @click="showForm(emp)">수정</button>
-            <button @click="showForm(emp.id)">삭제</button>
+            <button @click="deleteEmployee(emp.id)">삭제</button>
           </td>
         </tr>
       </tbody>
     </table>
+    <!-- 쓰기 메뉴 -->
     <div v-show="show == true" class="row">
       <div class="row">
         <div class="input-field col s2">
@@ -46,12 +50,12 @@
           <input id="email" type="text" v-model="employee.email">
           <label class="active" for="name">이메일</label>
         </div>    
-      </div>
-      
+      </div>      
     </div>
 
-    <a href="javascript:;" class="waves-effect waves-light btn" @click="btnOk">확인</a>
-    <a href="javascript:;" class="waves-effect waves-light btn" @click="btnCancel">취소</a>
+    <button @click="showForm()" class="waves-effect waves-light btn">추가</button>
+    <a href="javascript:;" @click="btnOk" class="waves-effect waves-light btn" >확인</a>
+    <a href="javascript:;" @click="btnCancel" class="waves-effect waves-light btn" >취소</a>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
